@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main class="desk">
+      <header class="masthead">
+        <h1>Recall</h1>
+        <p>Type a question, turn the card, check yourself.</p>
+      </header>
+
+      <section class="study" aria-label="Current flashcard">
+        <div
+          id="flashcard"
+          class="flashcard"
+          role="button"
+          tabindex="0"
+          aria-label="Flashcard. Click or press Enter to turn it over."
+        >
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <span class="card-tag">Q.</span>
+              <p id="card-question" class="card-question"></p>
+              <span class="card-hint">Click to turn over</span>
+            </div>
+            <div class="card-face card-back">
+              <span class="card-tag">A.</span>
+              <p id="card-answer" class="card-answer"></p>
+              <span class="card-hint">Click to see the question</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="prev-btn" type="button" class="btn btn-quiet" aria-label="Previous card">&larr;</button>
+          <span id="card-counter" class="counter" aria-live="polite"></span>
+          <button id="next-btn" type="button" class="btn btn-quiet" aria-label="Next card">&rarr;</button>
+        </div>
+
+        <button id="delete-btn" type="button" class="btn btn-danger">Remove this card</button>
+      </section>
+
+      <section class="composer" aria-labelledby="composer-title">
+        <h2 id="composer-title">Write a new card</h2>
+        <form id="entry-form" novalidate>
+          <label for="front-text">Question</label>
+          <textarea id="front-text" name="front-text" rows="3" placeholder="What does HTTP stand for?"></textarea>
+
+          <label for="back-text">Answer</label>
+          <textarea id="back-text" name="back-text" rows="3" placeholder="HyperText Transfer Protocol"></textarea>
+
+          <p id="form-error" class="form-error" role="alert"></p>
+
+          <button type="submit" class="btn btn-brass">Add to the deck</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="index.ts"></script>
+  </body>
+</html>
